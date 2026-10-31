@@ -93,10 +93,24 @@ python -m PyInstaller --noconfirm build_exe.spec
 
 产物：`dist/MermaidToVisio.exe`（约 26MB，免安装运行）。
 
+## Cursor Skill
+
+本仓库附带 Agent Skill，路径：
+
+```text
+.cursor/skills/mermaid-to-visio/SKILL.md
+```
+
+在 Cursor 中可用 `/mermaid-to-visio` 调用，或在对话里提到「Mermaid 转 Visio」时由 Agent 自动选用。Skill 约定：用本仓库 CLI/API 完成转换，不要手写 VSDX。
+
+若希望全局可用，可将该目录复制到 `~/.cursor/skills/mermaid-to-visio/`。
+
 ## 目录结构
 
 ```text
 mermaid_to_visio/
+├── .cursor/skills/mermaid-to-visio/  # Cursor Agent Skill
+│   └── SKILL.md
 ├── mermaid_to_visio.py   # 转换核心 + CLI
 ├── gui_app.py            # 图形界面
 ├── build_exe.spec        # PyInstaller 配置
